@@ -74,6 +74,16 @@ function getRandomQuote () {
   return randomQuote;  
 }
 
+var red;
+var green;
+var blue;
+var rgbColor;
+
+
+
+function randomRGB() {
+	return Math.floor(Math.random() * 256);
+}
 
 /***
  * `printQuote` function
@@ -89,7 +99,16 @@ function printQuote () {
     display += `<span class="year"> ${object.year}</span>`;
   }
   display += `</p>`
+  randomRGB();
+    for (let i = 0; i <=10; i++) {
+      red = randomRGB();
+      green = randomRGB();
+      blue = randomRGB();
+      rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+      
+    }
   document.getElementById('quote-box').innerHTML = display;
+  document.body.style.backgroundColor = rgbColor;
   
 }
 
@@ -100,7 +119,7 @@ function timing (seconds) {
   setInterval(printQuote, seconds * 1000);
 }
 
-timing(5);
+timing(10);
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
