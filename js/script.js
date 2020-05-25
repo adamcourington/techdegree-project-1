@@ -61,26 +61,46 @@ const quotes = [
     quote: "It is our choices, that show what we truly are, far more than our abilities.",
     source: "Albus Dumbledore",
     citation: "Harry Potter and the Chamber of Secrets ",
-    year: "1998 " 
   }
 
 ];
 
-
-
-
 /***
  * `getRandomQuote` function
 ***/
-
+function getRandomQuote () {
+  const randomNumber =  Math.floor(Math.random() * 10);
+  let randomQuote = quotes[randomNumber];
+  return randomQuote;  
+}
 
 
 /***
  * `printQuote` function
 ***/
+function printQuote () {
+  let object = getRandomQuote();
+  let display = `<p class="quote"> ${object.quote} </p>`;
+  display += `<p class="source"> ${object.source} `;
+  if ( object.citation !== undefined ){
+    display += `<span class="citation">  ${object.citation}</span>`;   
+  }
+  if (object.year !== undefined ) {
+    display += `<span class="year"> ${object.year}</span>`;
+  }
+  display += `</p>`
+  document.getElementById('quote-box').innerHTML = display;
+  
+}
 
+/***
+ *  `timing` function
+ ***/
+function timing (seconds) {
+  setInterval(printQuote, seconds * 1000);
+}
 
-
+timing(5);
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
