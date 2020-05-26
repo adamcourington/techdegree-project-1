@@ -77,7 +77,7 @@ const quotes = [
  * Uses the number to pick a quote from the Quotes array
 ***/
 function getRandomQuote () {
-  const randomNumber =  Math.floor(Math.random() * 10);
+  const randomNumber =  Math.floor(Math.random() * quotes.length);
   let randomQuote = quotes[randomNumber];
   return randomQuote;  
 }
@@ -113,16 +113,16 @@ function randomRGB() {
 ***/
 function printQuote () {
   let object = getRandomQuote();
-  let display = `<p class="quote"> ${object.quote} </p>`;
-  display += `<p class="source"> ${object.source} `;
+  let display = `<p class="quote">${object.quote} </p>`;
+  display += `<p class="source">${object.source}`;
   if ( object.citation !== undefined ){
-    display += `<span class="citation">  ${object.citation}</span>`;   
+    display += `<span class="citation">${object.citation}</span>`;   
   }
   if (object.year !== undefined ) {
-    display += `<span class="year"> ${object.year}</span>`;
+    display += `<span class="year">${object.year}</span>`;
   }
   if (object.media !== undefined) {
-    display += `<span class="media"> ${object.media}</span>`;
+    display += `<span class="media">${object.media}</span>`;
   }
   display += `</p>`
 
